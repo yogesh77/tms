@@ -1,4 +1,4 @@
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -8,16 +8,16 @@ export class FuseMatchMediaService
     activeMediaQuery: string;
     onMediaChange: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-    constructor(private observableMedia: ObservableMedia)
+    constructor(private MediaObserver: MediaObserver)
     {
         this.activeMediaQuery = '';
 
-        this.observableMedia.subscribe((change: MediaChange) => {
-            if ( this.activeMediaQuery !== change.mqAlias )
-            {
-                this.activeMediaQuery = change.mqAlias;
-                this.onMediaChange.next(change.mqAlias);
-            }
-        });
+        // this.MediaObserver.asObservable().subscribe((change: MediaChange) => {
+        //     if ( this.activeMediaQuery !== change.mqAlias )
+        //     {
+        //         this.activeMediaQuery = change.mqAlias;
+        //         this.onMediaChange.next(change.mqAlias);
+        //     }
+        // });
     }
 }

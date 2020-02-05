@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<div class="page-layout blank p-24" fusePerfectScrollbar>
+
+
+    <body>
+        <h2 style="text-align: center">{{'DATATABLE.HELLO' | translate}}</h2>
+    <!-- <table>
+      <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Parent</th>
+        <th>Asset</th>
+      </tr>
+      <tr *ngFor="let row of records">
+        <td>{{row.name}}</td>
+        <td>{{row.level}}</td>
+        <td>{{row.parent}}</td>
+        <td>{{row.asset}}</td>
+      </tr>
+    </table> -->
+    
+    <div class="scroll-container">
+      <pdf-viewer [src]="pdfSrc" [page]="page" [show-all]="false" (after-load-complete)="afterLoadComplete($event)">
+      </pdf-viewer>
+    </div>
+
+<div *ngIf="isLoaded" style="text-align: center;">
+  <button (click)="prevPage()" [disabled]="page === 1"> Prev </button>
+  <span>{{ page }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="page === totalPages"> Next </button>
+</div>
+    </body>
+
+   
+
+</div>
+</html>

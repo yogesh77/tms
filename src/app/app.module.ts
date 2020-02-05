@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { userService } from './service/app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,12 +15,25 @@ import { fuseConfig } from './fuse-config';
 import { AppComponent } from './app.component';
 import { FuseMainModule } from './main/main.module';
 import { FuseSampleModule } from './main/content/sample/sample.module';
+import { FuseDatatableModule } from './main/content/datatable/datatable.module';
+
+
+
 
 const appRoutes: Routes = [
     {
         path      : '**',
         redirectTo: 'sample'
+    },
+    {
+        path      : 'sample',
+        redirectTo: 'sample'
+    },
+    {
+        path      : 'datatable',
+        redirectTo: 'datatable'
     }
+
 ];
 
 @NgModule({
@@ -37,8 +51,10 @@ const appRoutes: Routes = [
         FuseModule.forRoot(fuseConfig),
         FuseSharedModule,
         FuseMainModule,
-        FuseSampleModule
+        FuseSampleModule,
+        FuseDatatableModule,
     ],
+    providers: [userService],
     bootstrap   : [
         AppComponent
     ]

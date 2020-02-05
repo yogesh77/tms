@@ -28,16 +28,16 @@
 
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
 
-            <button mat-button [matMenuTriggerFor]="userMenu"
+            <!-- <button mat-button [matMenuTriggerFor]="userMenu"
                     class="user-button">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <img class="avatar" src="assets/images/avatars/profile.jpg">
                     <span class="username mr-12" fxHide fxShow.gt-sm>Ashok Sharma</span>
                     <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
                 </div>
-            </button>
+            </button> -->
 
-            <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+            <!-- <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
 
                 <button mat-menu-item>
                     <mat-icon>account_circle</mat-icon>
@@ -54,7 +54,7 @@
                     <span>Logout</span>
                 </button>
 
-            </mat-menu>
+            </mat-menu> -->
 
             <div class="toolbar-separator"></div>
 
@@ -62,16 +62,16 @@
 
             <div class="toolbar-separator"></div>
 
-            <button mat-button fxHide fxShow.gt-xs
+            <!-- <button mat-button fxHide fxShow.gt-xs
                     class="language-button"
                     [matMenuTriggerFor]="languageMenu">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <img class="flag mr-8" [src]="'assets/images/flags/'+selectedLanguage.flag+'.png'">
                     <span class="iso text-uppercase">{{selectedLanguage.id}}</span>
                 </div>
-            </button>
+            </button> -->
 
-            <mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
+            <!-- <mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
 
                 <button mat-menu-item *ngFor="let lang of languages" (click)="setLanguage(lang)">
                     <div fxLayout="row" fxLayoutAlign="start center">
@@ -80,7 +80,7 @@
                     </div>
                 </button>
 
-            </mat-menu>
+            </mat-menu> -->
 
             <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
 

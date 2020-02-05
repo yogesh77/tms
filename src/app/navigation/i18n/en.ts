@@ -6,6 +6,10 @@ export const locale = {
             'SAMPLE'        : {
                 'TITLE': 'Sample',
                 'BADGE': '25'
+            },
+            'TABLE' :{
+                'TITLE': 'Data-Table',
+                'BADGE': '2'
             }
         }
     }

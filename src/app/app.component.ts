@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { userService } from './service/app.service';
 
 import { locale as navigationEnglish } from './navigation/i18n/en';
 import { locale as navigationTurkish } from './navigation/i18n/tr';
@@ -19,9 +20,16 @@ export class AppComponent
         private translate: TranslateService,
         private fuseNavigationService: FuseNavigationService,
         private fuseSplashScreen: FuseSplashScreenService,
-        private fuseTranslationLoader: FuseTranslationLoaderService
+        private fuseTranslationLoader: FuseTranslationLoaderService,
+        private userservice: userService
     )
     {
+            userservice.accessApi()
+            .subscribe(  (res) => {
+                console.log(res);
+    
+            });
+    
         // Add languages
         this.translate.addLangs(['en', 'tr']);
 

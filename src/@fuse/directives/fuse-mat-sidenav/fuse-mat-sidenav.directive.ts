@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit, HostListener, OnDestroy, HostBinding } from '@angular/core';
 import { MatSidenav } from '@angular/material';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 import { Subscription } from 'rxjs/Subscription';
 
 import { FuseMatchMediaService } from '@fuse/services/match-media.service';
@@ -19,7 +19,7 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
     constructor(
         private fuseMatSidenavService: FuseMatSidenavHelperService,
         private fuseMatchMedia: FuseMatchMediaService,
-        private observableMedia: ObservableMedia,
+        private MediaObserver: MediaObserver,
         private matSidenav: MatSidenav
     )
     {
@@ -29,7 +29,7 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
     {
         this.fuseMatSidenavService.setSidenav(this.id, this.matSidenav);
 
-        if ( this.observableMedia.isActive(this.matIsLockedOpenBreakpoint) )
+        if ( this.MediaObserver.isActive(this.matIsLockedOpenBreakpoint) )
         {
             this.isLockedOpen = true;
             this.matSidenav.mode = 'side';
@@ -43,7 +43,7 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
         }
 
         this.matchMediaSubscription = this.fuseMatchMedia.onMediaChange.subscribe(() => {
-            if ( this.observableMedia.isActive(this.matIsLockedOpenBreakpoint) )
+            if ( this.MediaObserver.isActive(this.matIsLockedOpenBreakpoint) )
             {
                 this.isLockedOpen = true;
                 this.matSidenav.mode = 'side';

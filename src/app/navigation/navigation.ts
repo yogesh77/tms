@@ -18,6 +18,20 @@ export const navigation = [
                     'bg'   : '#F44336',
                     'fg'   : '#FFFFFF'
                 }
+            },
+            {
+                'id'   : 'table',
+                'title': 'Data-Table',
+                'translate': 'NAV.TABLE.TITLE',
+                'type' : 'item',
+                'icon' : 'account_box',
+                'url'  : '/datatable',
+                'badge': {
+                    'title': 2,
+                    'translate': 'NAV.TABLE.BADGE',
+                    'bg'   : '#F44336',
+                    'fg'   : '#FFFFFF'
+                }
             }
         ]
     }

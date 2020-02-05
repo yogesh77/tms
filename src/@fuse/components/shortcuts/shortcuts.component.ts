@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 import { CookieService } from 'ngx-cookie-service';
 
 import { FuseMatchMediaService } from '@fuse/services/match-media.service';
@@ -30,7 +30,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
 
     constructor(
         private renderer: Renderer2,
-        private observableMedia: ObservableMedia,
+        private MediaObserver: MediaObserver,
         private fuseMatchMedia: FuseMatchMediaService,
         private fuseNavigationService: FuseNavigationService,
         private fuseConfig: FuseConfigService,
@@ -61,10 +61,10 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
             // User's shortcut items
             this.shortcutItems = [
                 {
-                    'title': 'Calendar',
+                    // 'title': 'Calendar',
                     'type' : 'nav-item',
                     'icon' : 'today',
-                    'url'  : '/apps/calendar'
+                    // 'url'  : '/apps/calendar'
                 },
                 {
                     'title': 'Mail',
@@ -89,7 +89,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
 
         this.matchMediaSubscription =
             this.fuseMatchMedia.onMediaChange.subscribe(() => {
-                if ( this.observableMedia.isActive('gt-sm') )
+                if ( this.MediaObserver.isActive('gt-sm') )
                 {
                     this.hideMobileShortcutsPanel();
                 }
